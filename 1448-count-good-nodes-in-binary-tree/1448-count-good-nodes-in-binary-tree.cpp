@@ -19,8 +19,9 @@ public:
             auto [node,maxVal]=q.front();
             q.pop();
             if(node->val>=maxVal) res++;
-            if(node->left) q.push({node->left,max(maxVal,node->val)});
-            if(node->right) q.push({node->right,max(maxVal,node->val)});
+            maxVal=max(maxVal,node->val);
+            if(node->left) q.push({node->left,maxVal});
+            if(node->right) q.push({node->right,maxVal});
             
         }
         return res;
