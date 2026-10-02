@@ -18,10 +18,9 @@ public:
         while(!q.empty()){
             auto [node,left,right]=q.front();
             q.pop();
-            if(!(left<node->val && node->val<right))return false;
+            if(!(left<node->val && node->val < right)) return false;
             if(node->left) q.push(make_tuple(node->left,left,node->val));
-            if(node->right) q.push(make_tuple(node->right,node->val,right));
-
+            if(node->right)q.push(make_tuple(node->right,node->val,right));
         }
         return true;
     }
